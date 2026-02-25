@@ -103,7 +103,7 @@ async def chat_completions(request: Request, authorization: Optional[str] = Head
     messages = body.get("messages", [])
     model_name = body.get("model", "claude-opus-4.6")
     stream = body.get("stream", True)
-    include_reasoning = body.get("include_reasoning", False)
+    include_reasoning = body.get("include_reasoning", True)
 
     logger.info("Request: model=%s, messages=%s, stream=%s", model_name, len(messages), stream)
 
