@@ -22,6 +22,7 @@ MODEL_MAP = {
     "claude-opus-4.5": ("Anthropic", "claude-opus-4-5"),
     "claude-sonnet-4.5": ("Anthropic", "claude-sonnet-4-5"),
     "gpt-5.2": ("OpenAI", "gpt-5.2"),
+    "gpt-5-mini": ("OpenAI", "gpt-5-mini"),
     "gpt-4.1": ("OpenAI", "gpt-4.1"),
     "gpt-4o": ("OpenAI", "gpt-4o"),
     "o3": ("OpenAI", "o3"),
