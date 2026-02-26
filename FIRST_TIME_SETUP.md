@@ -17,8 +17,13 @@ pip install -r requirements.txt
 打开项目根目录的 `.env`，至少确认下面这项：
 
 ```env
-ONYX_AUTH_COOKIE=fastapiusersauth=你的cookie
+ONYX_AUTH_COOKIE=fastapiusersauth=你的cookie1,fastapiusersauth=你的cookie2
 ```
+
+说明：
+- 支持英文逗号 `,` 和中文逗号 `，` 分隔多个 cookie。
+- 当 cookie 被判定不可用后，会写入 `cookie_state.json` 并在 7 天内自动跳过。
+- 如果你想立即重新检测全部 cookie，删除 `cookie_state.json` 后重启服务。
 
 可选项：
 
@@ -54,5 +59,6 @@ curl http://127.0.0.1:8896/health
 ## 6. 常见问题
 
 - `401`：`ONYX_AUTH_COOKIE` 失效，重新登录 Onyx 后更新 cookie。  
+- 返回 `All cookies are in cooldown window`：当前 cookie 都在 7 天冷却期，可删除 `cookie_state.json` 强制重检。  
 - 端口占用：把 `.env` 里的 `PORT` 改成其他端口，比如 `8897`。  
 - 模块报错：重新执行 `pip install -r requirements.txt`。
